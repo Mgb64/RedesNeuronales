@@ -5,44 +5,6 @@
 # 
 # Esta es una tarea para la clase de Redes Neuronales con la maestra Edelmira. Entrenaremos una CNN con el fin de usarlo para clasificar perros y gatos usando el celular de nuestra camara.
 
-# In[1]:
-
-
-get_ipython().system('pip install tensorflow==2.15.0')
-
-
-# In[2]:
-
-
-get_ipython().system('pip install keras==2.15')
-
-
-# In[3]:
-
-
-get_ipython().system('pip install tensorflow-datasets')
-
-
-# In[4]:
-
-
-get_ipython().system('pip install opencv-python==4.8.1.78')
-
-
-# In[5]:
-
-
-get_ipython().system('pip install matplotlib')
-
-
-# In[6]:
-
-
-get_ipython().system('pip install scipy')
-
-
-# In[7]:
-
 
 # --- Importacion de librerias ---
 
@@ -189,7 +151,7 @@ modeloCNN.compile(optimizer='adam',
 # In[19]:
 
 
-get_ipython().run_line_magic('time', 'hist_CNN1 = modeloCNN.fit( data_gen_entrenamiento, epochs=50,  batch_size=32, validation_data=data_gen_validacion, verbose=1 )')
+hist_CNN1 = modeloCNN.fit( data_gen_entrenamiento, epochs=50,  batch_size=32, validation_data=data_gen_validacion, verbose=1 )
 
 
 # In[22]:
