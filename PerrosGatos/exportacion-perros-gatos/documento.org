@@ -1,0 +1,37 @@
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS: [11pt, a4paper]
+#+LATEX_HEADER: \usepackage[utf8]{inputenc}
+#+LATEX_HEADER: \usepackage[T1]{fontenc}
+#+LATEX_HEADER: \usepackage{lmodern}
+#+LATEX_HEADER: \usepackage{geometry}
+#+LATEX_HEADER: \geometry{margin=1in}
+#+LATEX_HEADER: \usepackage{sectsty}
+#+LATEX_HEADER: \allsectionsfont{\bfseries\Large}  % títulos en negrita y más grandes
+#+LATEX_HEADER: \setcounter{secnumdepth}{0}        % desactiva la numeración de secciones
+#+OPTIONS: toc:nil
+
+
+* Implementacion de Clasificador de Perros y Gatos Por internet
+
+** Clasificador
+
+Se entreno una CNN sobre un dataset que contiene imagenes de perros y gatos. Las imagenes fueron preprocesadas
+en blanco y negro y recortada a tamano 100 x 100.
+
+
+** Implementacion en Internet.
+
+1. El modelo esta en un formato .h5, hay que pasarlo a un formato para produccion, en este caso con tensorflowjs
+   podemos pasarlo el .h5 a un archivo .json que es la arquitectura del modelo, junto con los binarios que ya
+   tiene los pesos cargados del entrenamiento.
+
+2. Usando el .json y los binarios se conecta con tensorflowjs al html por medio de javascript.
+
+3. Ponemos una camara en el html para que nos puedan pasar las imagenes. Lo que se hace es que cada cierto tiempo
+   captura la imagen de la camara, hace el preprocesamiento de pasarla a 100 x 100, la convierte a blanco y negro,
+   hace la prediccion y base a esta ponemos debajo de la cámara si es un perro o un gato.
+
+4. Para que funcione en el celular se hace lo siguiente:
+   - Se crea un servidor local con python.
+   - Con ngrok se hace un tunel a un servidor de ellos, con esto nos dan un link que podemos pasarlo a cualquier persona
+     y va a funcionar.
