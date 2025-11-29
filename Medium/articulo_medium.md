@@ -131,7 +131,9 @@ entrenamiento. En general, el modelo mostró un comportamiento estable y consist
 términos de *loss* y *accuracy*, gracias al uso de **regularización** y **aumentación de
 datos**.
 
-![Gráficas de entrenamiento](imagenes/Graficas.png)
+![Gráficas de entrenamiento](../accuracy_loss.png)
+
+![Gráficas de entrenamiento con FineTuning](../finetuning_accuracy_loss.png)
 
 Se observa que la **accuracy de validación supera a la de entrenamiento**, mientras que la
 **pérdida en validación es ligeramente menor** que la de entrenamiento. Esto es esperable
@@ -146,16 +148,13 @@ y la accuracy aumenta de manera consistente.
 El modelo se evaluó únicamente en el conjunto de validación, ya que los datos de prueba no
 incluyen etiquetas. Los resultados fueron:
 
-* **Accuracy:** 83.94%
-* **Precisión:** 85.04%
-* **Recall:** 83.94%
-* **F1-score:** 83.87%
+* **Accuracy:** 88.17%
+* **Precisión:** 88.68%
+* **Recall:** 88.17%
+* **F1-score:** 88.16%
 
 Cada métrica se calculó teniendo en cuenta la proporción de cada clase respecto al total,
 lo que permite una evaluación más equitativa en un conjunto con múltiples categorías.
-
-Pero el modelo al intentar predecir en el conjunto de test se veía sesgado por una 
-clase, prediciendo siempre la misma.
 
 ---
 
@@ -181,10 +180,8 @@ repositorio.
 
 **Limitaciones:**
 
-* El dataset presenta cierto desbalance entre clases, lo cual sesgo al modelo a una sola clase.
+* El dataset presenta cierto desbalance entre clases, lo cual sesgo al modelo hacia clases mas predominantes.
 * El modelo se limita a aprender patrones visuales y no integra información contextual.
-* Es importante revisar la licencia del dataset y considerar posibles sesgos, como
-  iluminación, especies sobre-representadas o fondos característicos.
 
 ---
 
@@ -192,12 +189,12 @@ repositorio.
 
 Para reproducir estos resultados clona el siguiente repositorio con este comando `git
 clone https://github.com/Mgb64/RedesNeuronales.git`. Dentro de este repositorio en la
-carpeta de `Medium`
-encontraras lo siguiente:  
+carpeta de `Medium` encontraras lo siguiente:  
 - La libreta con el cógigo que crea al modelo: `Modelo.ipynb`.
 - El ambiente de conda `enviroment.yml` que contiene los paquetes necesarios para que la
   libreta funcione.
 - Al final, se generara el archivo model.onxx que puede ser utilizado para inferencia.
+
 ---
 
 # 9. Uso del Modelo
@@ -218,38 +215,3 @@ ver que predice el modelo.
 
 * Tan & Le (2019). *EfficientNet: Rethinking Model Scaling for Convolutional Neural
   Networks*.
-* Documentación oficial de TensorFlow / Keras.
-* Dataset *Flower Classification with TPUs*, disponible en Kaggle.  * Scikit-learn:
-métricas de evaluación. 
-
----
-1. Reproducibilidad
-   - [x] Notebook/Colab enlazado y ejecuta de inicio a fin sin errores.
-   - [x] Seeds fijadas (`random`, `numpy`, `torch/tf`) y aviso del runtime (CPU/GPU,
-         T4/V100/A100).
-   - [x] `requirements.txt` / `environment.yml` o celda `pip install ...` clara.
-   - [x] Script/notebook descarga y organiza datos (o explica cómo obtenerlos).
-
-2. Exactitud técnica
-   - [x] Indicas modelo pre-entrenado (paper, checkpoint) y qué capas
-         congelas/descongelas.
-   - [x] Justificas hiperparámetros clave (lr, batch, epochs).
-   - [x] Métricas correctas para la tarea (accuracy, precision, recall, F1) y curvas.
-   - [x] Incluyes sanity checks (formas, batch pequeño, overfit a pocas muestras).
-
-3. Ética y licencias
-   - [x] Citas dataset y modelo con enlaces y licencias.
-   - [x] Declaras posibles sesgos y límites del modelo.
-   - [ ] Código con licencia clara (MIT/Apache-2.0/BSD-3-Clause).
-
-4. Presentación
-   - [x] TL;DR inicial (3–4 líneas) y conclusiones/limitaciones claras.
-   - [x] Imágenes con texto alternativo y gráficos legibles (títulos/leyendas).
-   - [x] Ortografía y formato correcto.
-   - [ ] Enlaces a repo/weights/demo funcionando.
-
-5. Seguridad y privacidad
-   - [x] No publicas claves/tokens/credenciales en el código o logs.
-   - [x] No hay datos sensibles.
-
-

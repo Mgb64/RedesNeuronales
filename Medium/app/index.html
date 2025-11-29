@@ -130,9 +130,13 @@
                  for (let y = 0; y < 224; y++) {
                      for (let x = 0; x < 224; x++) {
                          let i = (y*224 + x)*4;
-                         input[(y*224 + x)*3 + 0] = (imgData.data[i] / 127.5) - 1;
-                         input[(y*224 + x)*3 + 1] = (imgData.data[i+1] / 127.5) - 1;
-                         input[(y*224 + x)*3 + 2] = (imgData.data[i+2] / 127.5) - 1;
+                         input[(y*224 + x)*3 + 0] = imgData.data[i];
+                         input[(y*224 + x)*3 + 1] = imgData.data[i];
+                         input[(y*224 + x)*3 + 2] = imgData.data[i];
+                         
+                         /* input[(y*224 + x)*3 + 0] = (imgData.data[i] / 127.5) - 1;
+                          * input[(y*224 + x)*3 + 1] = (imgData.data[i+1] / 127.5) - 1;
+                          * input[(y*224 + x)*3 + 2] = (imgData.data[i+2] / 127.5) - 1; */
                      }
                  }
 
