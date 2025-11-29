@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#SBATCH --nodes=1                # un solo nodo
+#SBATCH --ntasks=1               # un solo proceso Python
+#SBATCH --cpus-per-task=8       # cantidad de CPUs que quieres usar
+#SBATCH --time=2:00:00           # tiempo máximo
+#SBATCH --partition=cpu
+
+source activate Medium_2
+export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH
+srun python Modelo.py
